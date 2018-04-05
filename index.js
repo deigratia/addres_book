@@ -43,7 +43,7 @@ const showtampil = () => {
     const li = document.createElement("li");
 
     //const tampilNode = document.createTextNode(tampils.nama);
-    li.innerHTML = `${tampils}
+    li.innerHTML = `${tampil.nama}
     <i onclick="destroy(${index})">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp X</i>
     <i onclick="change(${index})">&nbsp edit</i>`
 
