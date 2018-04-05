@@ -5,11 +5,13 @@ const addButton = document.getElementById('addButton');
 const addlabel = () => {
   const label1 = document.getElementById('label').value;
 
-  var label = {nama: label1}
+  var label = {
+    nama: label1
+  }
   if (label !== "") {
     addtampil(label);
     console.log(label);
-  }else {
+  } else {
     alert("input can be empty");
   }
 };
@@ -19,7 +21,7 @@ const check = () => {
     const tampilArray = JSON.parse(localStorage.data)
     return tampilArray;
   } else {
-    localStorage.setItem("data","[]")
+    localStorage.setItem("data", "[]")
     return [];
   }
 };
@@ -38,8 +40,7 @@ const showtampil = () => {
   tampil.innerHTML = "";
 
   const data = check()
-  console.log(data);
-  data.map((tampils,index) => {
+  data.map((tampils, index) => {
     const li = document.createElement("li");
 
     //const tampilNode = document.createTextNode(tampils.nama);
@@ -55,16 +56,18 @@ const showtampil = () => {
 };
 
 const destroy = (index) => {
-    let tampilArray = check()
-    tampilArray.splice(index, 1)
-    localStorage.data = JSON.stringify(tampilArray)
-    showtampil()
+  let tampilArray = check()
+  tampilArray.splice(index, 1)
+  localStorage.data = JSON.stringify(tampilArray)
+  showtampil()
 };
 
 const change = (index) => {
   let change = prompt('Edit Text')
+  //console.log(typeof change);
   let tampilArray = check()
-  tampilArray[index] = change
+  tampilArray[index].nama = change;
+  //console.log(tampilArray)
   localStorage.data = JSON.stringify(tampilArray)
   showtampil()
 }
